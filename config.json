@@ -6,19 +6,14 @@
             "dataset": {
                 "train_data_path": [
                     [
-                        "dataset1.txt1",
-                        "dataset1.txt2"
-                    ],
-                    [
-                        "dataset2.txt1",
-                        "dataset2.txt2"
+                        "datafile.txt"
                     ]
                 ],
                 "train_data_ratio": [
                     0.5,
                     0.5
                 ],
-                "val_data_path": "path/to/test/",
+                "val_data_path": "./pan_data/test/",
                 "input_size": 640,
                 "img_channel": 3,
                 "shrink_ratio": 0.5

@@ -112,12 +112,11 @@ if __name__ == '__main__':
     model_path = 'output/PAN_shufflenetv2_FPEM_FFM.pth'
 
     img_id = 10
-    img_path = 'E:/zj/dataset/icdar2015/test/img/img_{}.jpg'.format(img_id)
+    img_path = '000.jpg'
 
     # 初始化网络
     model = Pytorch_model(model_path, gpu_id=0)
     preds, boxes_list, t = model.predict(img_path)
     show_img(preds)
     img = draw_bbox(cv2.imread(img_path)[:, :, ::-1], boxes_list)
-    show_img(img, color=True)
-    plt.show()
+    cv2.imwrite('output.jpg', img)
