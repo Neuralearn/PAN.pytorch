@@ -12,14 +12,23 @@ os.environ['CUDA_VISIBLE_DEVICES'] = ','.join([str(i) for i in config['trainer']
 from models import get_model, get_loss
 from data_loader import get_dataloader
 from trainer import Trainer
-
+import torch
 
 def main(config):
     train_loader = get_dataloader(config['data_loader']['type'], config['data_loader']['args'])
 
-    criterion = get_loss(config).cuda()
+
+    #checkpoint = torch.load('output/PANNet_latest.pth')
+
+    #config = checkpoint['config']
+        
+    #config['arch']['args']['pretrained'] = True
 
     model = get_model(config)
+    
+    #model.load_state_dict(checkpoint['state_dict'])
+    
+    criterion = get_loss(config).cuda()
 
     trainer = Trainer(config=config,
                       model=model,
